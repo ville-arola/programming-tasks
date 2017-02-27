@@ -43,19 +43,16 @@ namespace bank_objects
         public bool AddTransaction(Transaction transaction)
         {
             bool res = false;
-            //if (transaction.IsValid)
-            //{
-                _transactions.Add(transaction);
-                double balanceBeforeTransaction = _balance;
-                if (_transactions.Last().Equals(transaction))
-                {
-                    _balance += transaction.Sum;
-                }
-                if (_balance - transaction.Sum == balanceBeforeTransaction)
-                {
-                    res = true;
-                }
-            //}
+            _transactions.Add(transaction);
+            double balanceBeforeTransaction = _balance;
+            if (_transactions.Last().Equals(transaction))
+            {
+                _balance += transaction.Sum;
+            }
+            if (_balance - transaction.Sum == balanceBeforeTransaction)
+            {
+                res = true;
+            }
             return res;
         }
     }
