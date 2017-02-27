@@ -17,7 +17,7 @@ namespace bank_objects
             for (int i = 0; i < 60; i++)
             {
                 int c = rnd.Next(0, customers.Count()),
-                    day = rnd.Next(1, 30),
+                    day = rnd.Next(1, 29),
                     month = rnd.Next(1, 13),
                     year = rnd.Next(2015, 2018);
                 double s = rnd.NextDouble() * 2000 - 900;
