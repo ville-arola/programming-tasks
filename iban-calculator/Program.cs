@@ -10,6 +10,7 @@ namespace iban_calculator
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Programming tasks - iban-calculator\n");
             while (true)
             {
                 Console.Write("Syötä BBAN-tilinumero: ");
