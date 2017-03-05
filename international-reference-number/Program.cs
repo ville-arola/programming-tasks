@@ -30,14 +30,15 @@ namespace international_reference_number
         {
             Console.Write("Syötä kansainvälinen viitenumero: ");
             List<char> rfNumber = new List<char>();
+            string res = "Syöte on virheellinen";
             if (RFutilities.HasProperFormat(RFutilities.SanitizeRFinput(Console.ReadLine()), out rfNumber))
             {
-                Console.WriteLine("{0} - OK", RFutilities.PrintFormatRF(rfNumber, 4));
+                if (RFutilities.ValidateRFnumber(rfNumber))
+                {
+                    res = string.Format("{0} - OK", RFutilities.PrintFormatRF(rfNumber, 4));
+                }
             }
-            else
-            {
-                Console.WriteLine("Syöte on virheellinen.");
-            }
+            Console.WriteLine(res);
         }
 
         private static void RFgeneration()

@@ -10,15 +10,16 @@ namespace international_reference_number
     {
         public static bool ValidateRFnumber(List<char> rf)
         {
-            for (int i = 0; i < 4; i++)
-            {
-                rf.Add(rf.ElementAt(i));
-            }
-            rf.RemoveRange(0,4);
-            string rfString = string.Empty;
+            string tmp = string.Empty;
             foreach (char i in rf)
             {
-                rfString += GetCharCode(i);
+                tmp += i;
+            }
+            tmp = tmp.Substring(4) + tmp.Substring(0,4);
+            string rfString = string.Empty;
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                rfString += GetCharCode(tmp.ElementAt(i));
             }
             return Mod(rfString, 97) == 1;
         }
